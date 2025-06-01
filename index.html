@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desde 15:26...</title>
+  <style>
+    body {
+      background-color: #ffeef2;
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      color: #aa0044;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    #timer {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    .heart {
+      font-size: 40px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aquela simples mensagem às 15:26...</h1>
+  <div id="timer">Carregando...</div>
+  <div class="heart">❤️</div>
+
+  <script>
+    const startDate = new Date('2025-05-17T15:26:00');
+    const timer = document.getElementById('timer');
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
